@@ -1,0 +1,40 @@
+{
+  "packs": {
+    "global": {
+      "fileRules": [
+        { "pattern": "\\.env$", "points": 30, "reason": "Environment configuration file modified" }
+      ],
+      "lineRules": [
+        { "pattern": "(A3T[A-Z0-9]|AKIA|AGPA|AIDA|AROA|AIPA|ANPA|ANVA|ASIA)[A-Z0-9]{16}", "points": 80, "reason": "Leaked AWS Access Key ID" },
+        { "pattern": "-----BEGIN (RSA|OPENSSH|EC|DSA)? PRIVATE KEY-----", "points": 90, "reason": "Leaked Private Key Block" },
+        { "pattern": "ey[a-zA-Z0-9-_=]+\\.ey[a-zA-Z0-9-_=]+\\.[a-zA-Z0-9-_=]+", "points": 50, "reason": "Potential JWT (JSON Web Token) detected" },
+        { "pattern": "(secret|password|api_key|token|passwd|credential)\\s*[:=]\\s*['\"`][a-zA-Z0-9-_]{8,}['\"`]", "points": 40, "reason": "Potential hardcoded credential assignment" }
+      ]
+    },
+    "javascript": {
+      "extensions": [".js", ".jsx", ".ts", ".tsx", ".mjs", ".cjs"],
+      "fileRules": [
+        { "pattern": "package\\.json|package-lock\\.json|yarn\\.lock|pnpm-lock\\.yaml", "points": 20, "reason": "Modifying dependencies" }
+      ],
+      "lineRules": [
+        { "pattern": "eval\\s*\\(", "points": 50, "reason": "Critical risk: Execution of eval()" },
+        { "pattern": "dangerouslySetInnerHTML", "points": 45, "reason": "Cross-Site Scripting (XSS) risk via raw HTML rendering" },
+        { "pattern": "TODO|FIXME|HACK", "points": 5, "reason": "Technical debt added" }
+      ]
+    },
+    "python": {
+      "extensions": [".py", ".pyw"],
+      "fileRules": [
+        { "pattern": "requirements\\.txt|Pipfile|poetry\\.lock", "points": 20, "reason": "Modifying Python dependencies" }
+      ],
+      "lineRules": [
+        { "pattern": "eval\\s*\\(|exec\\s*\\(", "points": 50, "reason": "Critical risk: Execution of dynamic code (eval/exec)" },
+        { "pattern": "os\\.system\\s*\\(|subprocess\\.Popen\\s*\\(\\s*.*shell\\s*=\\s*True", "points": 45, "reason": "Command injection vulnerability via shell execution" }
+      ]
+    }
+  },
+  "thresholds": {
+    "maxFiles": { "limit": 10, "points": 15, "reason": "High blast radius: Over 10 files changed." },
+    "maxLinesAdded": { "limit": 200, "points": 10, "reason": "Large change: Over 200 lines added." }
+  }
+}
