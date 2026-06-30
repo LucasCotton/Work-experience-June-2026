@@ -22,8 +22,10 @@ Ensure that you have a path where you can store all of the required files.
 
 ## Usage
 
+* EXAMPLE
+changerisk.ts test123.txt
 To analyze a diff file, run the script and pass the path to your target file as an argument;
-Ensure that the desired directory is selected by using (cd "Your path directory"
+Ensure that the desired directory is selected by using (cd "Your path directory" ) 
 
 ```bash
 bun changerisk.ts path/to/your/file.diff
