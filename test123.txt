@@ -1,0 +1,17 @@
+diff --git a/src/auth/login.ts b/src/auth/login.ts
+index 1234567..89abcdef 100644
+--- a/src/auth/login.ts
++++ b/src/auth/login.ts
+- const isAuthenticated = checkSession();
++ const password = "SuperSecretPassword123";
++ const token = eval(userInput);
+diff --git a/config.env b/config.env
+index 7654321..fedcba9 100644
+--- a/config.env
++++ b/config.env
++ DATABASE_URL=mongodb://localhost:27017
+diff --git a/src/utils/helpers.ts b/src/utils/helpers.ts
+index abcdef1..7654321 100644
+--- a/src/utils/helpers.ts
++++ b/src/utils/helpers.ts
++ // TODO: fix this later
