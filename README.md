@@ -1,6 +1,7 @@
 # Change Risk Analyzer
 
-A lightweight, rule-based command-line tool built with Bun to analyze Git diffs and calculate a code change risk score based on pattern matching.
+A small tool that reads a code change (a Git diff) and scores how risky it is
+from a security point of view. Built for JavaScript/TypeScript projects.
 
 ## Features
 
@@ -14,18 +15,20 @@ A lightweight, rule-based command-line tool built with Bun to analyze Git diffs 
 
 You need [Bun](https://bun.sh/) installed on your local machine to run this project.
 Ensure that you have a path where you can store all of the required files.
+To analyze a diff file, run the script and pass the path to your target file as an argument;
+Ensure that the desired directory is selected by using (cd "Your path directory" ) 
 
 ## Installation
 
-1. Clone or download this repository to your local machine.
-2. Ensure your main script file is named `changerisk.ts`.
+1. Ensure that [Bun](https://bun.sh/) is installed on your local machine to run this project.
+2. Install the changerisk.ts file from this repository.
+3. Open powershell and enter "bun changerisk.ts (YOUR FILE)
+4. A security feedback score will be given as an integer.
 
-## Usage
+## Built by
 
-* EXAMPLE
-changerisk.ts test123.txt
-To analyze a diff file, run the script and pass the path to your target file as an argument;
-Ensure that the desired directory is selected by using (cd "Your path directory" ) 
+Lucas Cotton, during work experience at Cytix, June 2026.
+
 
 ```bash
 bun changerisk.ts path/to/your/file.diff
