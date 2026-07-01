@@ -31,4 +31,6 @@ Lucas Cotton, during work experience at Cytix, June 2026.
 
 
 ```bash
-bun changerisk.ts path/to/your/file.diff
+cd "path/to/your/file"
+
+bun changerisk.ts (name_of_your_file.diff/txt)
